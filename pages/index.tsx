@@ -9,12 +9,17 @@ const inter = Inter({ subsets: ["latin"] });
 // El llamado a la random fox
 const random = (): number => Math.floor(Math.random() * 123) + 1;
 
+// simple unique id
+const generateId = () => Math.random().toString(36).substr(2, 9);
+
+type ImageItem = { id: string; url: string };
+
 export default function Home() {
-  const [images, setImages] = useState<Array<string>>([
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
+  const [images, setImages] = useState<Array<ImageItem>>([
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
   ]);
   return (
     <div>
@@ -24,9 +29,9 @@ export default function Home() {
       </Head>
       <main>
         <h1 className="text-3xl font-bold underline">Hola tecnomundo!</h1>
-        {images.map((image, index) => (
-          <div key={index} className="p-4">
-            <RandomFox image={image} />
+        {images.map(({ id, url }) => (
+          <div key={id} className="p-4">
+            <RandomFox image={url} />
           </div>
         ))}
       </main>
