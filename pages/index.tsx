@@ -1,7 +1,7 @@
 import { MouseEventHandler, useState } from "react";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import { RandomFox } from "@/components/RandomFox";
+import { LazyImage } from "@/components/RandomFox";
 
 // Es para la fuente de la tipografia, con la lib de google
 const inter = Inter({ subsets: ["latin"] });
@@ -38,7 +38,7 @@ export default function Home() {
         <button onClick={addNewFox}>Agregar nueva imagen</button>
         {images.map(({ id, url }) => (
           <div key={id} className="p-4">
-            <RandomFox image={url} />
+            <LazyImage src={url} className="rounded-lg bg-gray-400" width={320} height="auto" />
           </div>
         ))}
       </main>
