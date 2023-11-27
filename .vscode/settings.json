@@ -1,3 +1,7 @@
+//'Droid Sans Mono', 'monospace', monospace
+
 {
-  "editor.fontFamily": "\"Fira Code\", ''Droid Sans Mono', 'monospace', monospace"
+  "editor.fontFamily": "'Fira Code",
+  "editor.fontLigatures": true,
+  "prettier.printWidth": 100
 }
