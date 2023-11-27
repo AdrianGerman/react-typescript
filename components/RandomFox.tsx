@@ -3,5 +3,5 @@
 type Props = { image: string };
 
 export const RandomFox = ({ image }: Props): JSX.Element => {
-  return <img className="rounded-2xl" width={320} height="auto" src={image} />;
+  return <img className="rounded-lg" width={320} height="auto" src={image} />;
 };
