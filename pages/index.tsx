@@ -36,9 +36,12 @@ export default function Home() {
       <main>
         <h1 className="text-3xl font-bold underline">Hola tecnomundo!</h1>
         <button onClick={addNewFox}>Agregar nueva imagen</button>
-        {images.map(({ id, url }) => (
+        {images.map(({ id, url }, index) => (
           <div key={id} className="p-4">
-            <LazyImage src={url} className="rounded-lg bg-gray-400" width={320} height="auto" />
+            <LazyImage src={url} className="rounded-lg bg-gray-400" width={320} height="auto" 
+            onLazyLoad={(img) => {
+                console.log(`Image #${index + 1} cargada. Nodo:`, img);
+              }} />
           </div>
         ))}
       </main>
