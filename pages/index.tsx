@@ -1,13 +1,17 @@
 import { MouseEventHandler, useState } from "react";
 import { Inter } from "next/font/google";
 import Head from "next/head";
+import { random } from "lodash";
 import { LazyImage } from "@/components/RandomFox";
+
+// random number from 1 to 122
+const myRandom = () => random(1, 122);
 
 // Es para la fuente de la tipografia, con la lib de google
 const inter = Inter({ subsets: ["latin"] });
 
 // El llamado a la random fox
-const random = (): number => Math.floor(Math.random() * 123) + 1;
+// const random = (): number => Math.floor(Math.random() * 123) + 1;
 
 // simple unique id
 const generateId = () => Math.random().toString(36).substr(2, 9);
@@ -20,7 +24,7 @@ export default function Home() {
 
     const newImageItem: IFoxImageItem = {
       id: generateId(),
-      url: `https://randomfox.ca/images/${random()}.jpg`,
+      url: `https://randomfox.ca/images/${myRandom()}.jpg`,
     };
     setImages([...images, newImageItem]);
   };
