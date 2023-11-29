@@ -10,9 +10,6 @@ const myRandom = () => random(1, 122);
 // Es para la fuente de la tipografia, con la lib de google
 const inter = Inter({ subsets: ["latin"] });
 
-// El llamado a la random fox
-// const random = (): number => Math.floor(Math.random() * 123) + 1;
-
 // simple unique id
 const generateId = () => Math.random().toString(36).substr(2, 9);
 
@@ -46,15 +43,13 @@ export default function Home() {
           </div>
           <div className="mt-10 mb-5 w-1/3 text-justify bg-slate-800 p-10">
             <p>
-              Hola muy buenas querido navegante, en este sitio que acabas de
-              descubrir, se genera una imagen de un ZORRO cada vez que hagas
-              click en el boton :o
+              Hola muy buenas querido navegante, en este sitio que acabas de descubrir, se genera
+              una imagen de un ZORRO cada vez que hagas clic en el botón :o
             </p>
             <p>
-              Ya lo has de estar pensando pero esta pagina tiene truco, no son
-              imagenes ilimitadas, solo son 123 imagenes diferentes que se van
-              renderizando de manera aleatoria cada vez que hagas click al
-              boton, de igual modo disfruta de lo que sea que hagas aqui.
+              Ya lo has de estar pensando, pero esta página tiene truco, no son imágenes ilimitadas,
+              solo son 123 imágenes diferentes que se van renderizando de manera aleatoria cada vez
+              que hagas clic al botón, de igual modo disfruta de lo que sea que hagas aquí.
             </p>
           </div>
           <button
@@ -66,10 +61,7 @@ export default function Home() {
         </div>
 
         {images.map(({ id, url }, index) => (
-          <div
-            key={id}
-            className="p-4 flex flex-col justify-center items-center "
-          >
+          <div key={id} className="p-4 flex flex-col justify-center items-center ">
             <LazyImage
               src={url}
               className="rounded-lg bg-gray-400 snap-center"
